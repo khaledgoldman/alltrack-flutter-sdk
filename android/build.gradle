@@ -1,0 +1,40 @@
+group 'com.alltrack.sdk.flutter'
+version '1.0-SNAPSHOT'
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath('com.android.tools.build:gradle:7.1.1')
+    }
+}
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
+}
+apply plugin: 'com.android.library'
+android {
+    compileSdkVersion 31
+
+    defaultConfig {
+        minSdkVersion 16
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+dependencies {
+    implementation files('src/libs/alltrack-sdk-release.jar')
+}

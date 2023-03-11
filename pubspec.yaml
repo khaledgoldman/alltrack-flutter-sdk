@@ -1,0 +1,22 @@
+name: aalltrack_sdk
+description: This is the Flutter SDK of Alltrack. You can read more about Alltrack at alltrack.com.
+homepage: https://github.com/khaledgoldman
+version: 0.0.1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  meta: ">=1.1.6 <2.0.0"
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.alltrack.sdk.flutter
+        pluginClass: AlltrackSdk
+      ios:
+        pluginClass: AlltrackSdk
